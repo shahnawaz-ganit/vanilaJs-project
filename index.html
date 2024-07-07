@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Document</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/carausel.css">
+    <link rel="stylesheet" href="./css/filters.css">
+    <link rel="stylesheet" href="./css/products.css">
+    <link rel="stylesheet" href="./css/shimmer.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/mobile-menu.css">
+
+
+</head>
+
+<body>
+
+
+    <!-- ==================== [ Header ] ========================== -->
+
+    <header class="header">
+        <div class="icon-container-1" id="hamburger" onclick="handleOpenMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <h3 class="header-title">VENIA</h3>
+        <ul class="nav-list">
+            <li class="nav-item first-nav-item"><a href="#" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Women</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Smart Gear</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Accessories</a></li>
+        </ul>
+        <div class="icon-container">
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+    </header>
+
+    <!-- ==================== [ Mobile Menu Item ] ========================== -->
+
+    <div class="filters-menu" id="filters-menu">
+
+        <div onclick="handleCloseMenu()" class="close-menu" id="close-menu">
+            <i class="fas fa-times"></i>
+
+        </div>
+
+        <div class="filters" id="filters-mobile">
+            <h4>Filters</h4>
+            <hr class="filter-menu-hr">
+            <h6>Categories</h6>
+            <div>
+                <input type="checkbox" id="Jewellery" name="category" value="jewelery"
+                    onclick="event.stopPropagation()">
+                <label for="Jewellery">Jewellery</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Electronics" name="category" value="electronics"
+                    onclick="event.stopPropagation()">
+                <label for="Electronics">Electronics</label>
+            </div>
+            <div>
+                <input type="checkbox" id="men-clothing" name="category" value="men's clothing"
+                    onclick="event.stopPropagation()">
+                <label for="men-clothing">Men's Clothing</label>
+            </div>
+            <div>
+                <input type="checkbox" id="women-clothing" name="category" value="women's clothing"
+                    onclick="event.stopPropagation()">
+                <label for="women-clothing">Women's Clothing</label>
+            </div>
+            <hr class="filter-menu-hr">
+            <button onclick="handleCloseMenu()" id="close-menu" class="see-results">See <span
+                    id="result-count-1"></span></button>
+        </div>
+
+
+    </div>
+
+    <!-- ==================== [ Carausel ] ========================== -->
+
+    <section class="carausel-section">
+
+        <div class="text-container">
+            <h1 class="second-h1">Men's</h1>
+            <h1>Outerwear</h1>
+        </div>
+        <hr>
+        <div class="image-container">
+            <img src="./images/carausal-img-1.jpg" alt="Men's Outerwear">
+        </div>
+    </section>
+
+    <!-- ==================== [ Products and Filters ] ========================== -->
+
+    <section class="product-section">
+
+        <!-- filters -->
+
+        <div class="filters" id="filters-desktop">
+            <p>Clothing / Women's / Outerwear</p>
+            <h4>Filters</h4>
+            <hr class="filter-hr">
+            <h6>Categories</h6>
+
+            <div>
+                <input type="checkbox" id="desktop-Jewellery" name="category" value="jewelery">
+                <label for="desktop-Jewellery">Jewellery</label>
+            </div>
+            <div>
+                <input type="checkbox" id="desktop-Electronics" name="category" value="electronics">
+                <label for="desktop-Electronics">Electronics</label>
+            </div>
+            <div>
+                <input type="checkbox" id="desktop-men-clothing" name="category" value="men's clothing">
+                <label for="desktop-men-clothing">Men's Clothing</label>
+            </div>
+            <div>
+                <input type="checkbox" id="desktop-women-clothing" name="category" value="women's clothing">
+                <label for="desktop-women-clothing">Women's Clothing</label>
+            </div>
+
+            <hr class="filter-hr">
+        </div>
+
+
+        <!-- Product list -->
+        <div class="product-container">
+
+            <div class="sort-search">
+                <p id="result-count-2">38 Results</p>
+                <div>
+                    <input type="search" id="search" name="search" placeholder="Search...">
+                </div>
+                <div>
+                    <select name="sort" id="sort">
+                        <option value="">Select</option>
+                        <option value="asc">Sort By Price: Low to High</option>
+                        <option value="desc">Sort By Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="products-list">
+                <!-- Products will be dynamically added here -->
+            </div>
+            <!-- Shimmer effect placeholders -->
+            <div class="shimmer-container">
+                <div class="shimmer-placeholder"></div>
+                <div class="shimmer-placeholder"></div>
+                <div class="shimmer-placeholder"></div>
+                <div class="shimmer-placeholder"></div>
+                <div class="shimmer-placeholder"></div>
+                <div class="shimmer-placeholder"></div>
+            </div>
+            <button id="load-more-btn">Load More</button>
+            <div id="error-container" class="error-container"></div>
+        </div>
+
+    </section>
+
+    <!-- ==================== [ Footer ] ========================== -->
+    <hr>
+    <footer>
+        <div class="footer-section-1">
+            <div>
+                <h4>Account</h4>
+                <p>Sign In</p>
+                <p>Register</p>
+                <p>Order Status</p>
+            </div>
+            <div>
+                <h4>About Us</h4>
+                <p>Our Story</p>
+                <p>Careers</p>
+            </div>
+            <div>
+                <h4>Help</h4>
+                <p>Contact Us</p>
+                <p>Order Status</p>
+                <p>Returns</p>
+            </div>
+            <div>
+                <h4>Follow Us!</h4>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, temporibus?</p>
+                <p><span><i class="fab fa-instagram"></i></span> <span><i class="fab fa-facebook"></i></span> <span><i
+                            class="fab fa-twitter"></i></span> </p>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-section-2">
+            <div>
+                <h3>VENIA</h3>
+                <div>
+                    <p>Company Name Address Ave, City Name, State Zip</p>
+                </div>
+                <div>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script src="./javascript/hamburger.js"></script>
+    <script type="module" src="./javascript/apiService.js"></script>
+    <script type="module" src="./javascript/utils.js"></script>
+    <script type="module" src="./javascript/filterService.js"></script>
+    <script type="module" src="./javascript/main.js"></script>
+
+</body>
+
+</html>

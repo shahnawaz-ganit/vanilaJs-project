@@ -1,0 +1,56 @@
+.filters-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000;
+    flex-direction: column;
+}
+
+#filters-mobile{
+    width: 100%;
+    position: absolute;
+    top: 5px;
+    left: 0px;
+}
+
+
+.filters-menu .close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 3000;
+}
+
+.filter-menu-hr {
+    margin: 10px 0;
+}
+
+
+
+.show-filters-menu {
+    display: flex;
+}
+
+.see-results{
+    border: none;
+    background-color: blue;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    width: 40%;
+    align-items: center;
+    /* text-align: center; */
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    /* margin-left: 2rem; */
+}
