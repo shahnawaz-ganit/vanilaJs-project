@@ -1,5 +1,5 @@
 .carausel-section {
-    margin-top: 3rem;
+    /* margin-top: 3rem; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,20 +47,35 @@
 /* Mobile */
 @media  (max-width: 767px) {
     .carausel-section {
-        
         flex-direction: column-reverse;
+        height: 40dvh;
     }
 
     .text-container {
-        width: 70%; 
-        height: 25dvh;
+        width: 90%; 
+        padding: 3rem 0px;
+        /* height: 40dvh; */
         position: relative;
-        top: -80px; 
+        top: -60px; 
     }
     .image-container{
         width: 100%;
         margin: 0px !important;
         padding: 0px !important ;
+    }
+    .image-container img {
+        /* width: 100%; */
+        height: 30vh; 
+    }
+    .text-container h1 {
+        margin-top: -1rem;
+    }
+    .second-h1{
+        padding-bottom: 0.5rem;
+        /* margin-bottom: 100rem; */
+    }
+    .second-h1::after{
+        bottom: -45px;
     }
  
  }

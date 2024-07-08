@@ -2,6 +2,10 @@
 export function hideLoadMoreBtn() {
     document.getElementById('load-more-btn').style.display = 'none'
 }
+export function showLoadMoreBtn() {
+    document.getElementById('load-more-btn').style.display = 'block'
+    // document.getElementsById('product-section').style.textAlign = 'center';
+}
 
 
 export function displayError(message) {
@@ -50,18 +54,24 @@ export function createProductElement(product) {
 }
 
 export function renderProducts(products) {
+    console.log("render products=>", products)
     const productContainer = document.querySelector('.products-list');
+    const errorDiv = document.getElementById('error-container')
     productContainer.innerHTML = '';
+    console.log("before ",errorDiv)
 
-    if(products.length > 0){
+    if (products.length > 0) {
+        errorDiv.style.display = 'none';
+        console.log("after ",errorDiv)
+        
         products.forEach(product => {
             const productDiv = createProductElement(product);
             productContainer.appendChild(productDiv);
         });
-    }else{
-        displayError('No Data Available')
-        hideLoadMoreBtn()
+        // showLoadMoreBtn()
     }
-
-    
+    else {
+        displayError('No Data Available')
+        hideLoadMoreBtn()        
+    }
 }

@@ -41,7 +41,9 @@
             <li class="nav-item"><a href="#" class="nav-link">Accessories</a></li>
         </ul>
         <div class="icon-container">
-            <i class="fas fa-shopping-cart"></i>
+            <!-- <i class="fas fa-shopping-cart"></i> -->
+            <i class="fas fa-shopping-bag"></i>
+
         </div>
     </header>
 
@@ -51,7 +53,6 @@
 
         <div onclick="handleCloseMenu()" class="close-menu" id="close-menu">
             <i class="fas fa-times"></i>
-
         </div>
 
         <div class="filters" id="filters-mobile">
@@ -86,6 +87,8 @@
 
     </div>
 
+
+
     <!-- ==================== [ Carausel ] ========================== -->
 
     <section class="carausel-section">
@@ -99,10 +102,31 @@
             <img src="./images/carausal-img-1.jpg" alt="Men's Outerwear">
         </div>
     </section>
+    <!-- [ Mobile View Filters and Sort ] -->
+
+    <div class="mobile-filter-sort-section" >
+        <p style="padding-left: 1.2rem;" >Clothing / Women's / <span style="color: gray;" >Outerwear</span></p>
+        <div class="mobile-filter-sort" >
+            <p> <span><img src="./icons/sliders.svg" alt="filter" srcset="">
+                </span> 
+                <span class="filter-sort-text" >Filter Results</span>
+                
+            </p>
+            <p>
+                <span>
+                    <img src="./icons/arrow-up.svg" alt="sort" srcset="">
+                    <img src="./icons/arrow-down.svg" alt="sort" srcset="">
+                </span>
+                <span class="filter-sort-text">Sort Products</span> 
+            </p>
+        </div>
+
+
+    </div>
 
     <!-- ==================== [ Products and Filters ] ========================== -->
 
-    <section class="product-section">
+    <section id="product-section" class="product-section">
 
         <!-- filters -->
 
@@ -143,9 +167,9 @@
                 </div>
                 <div>
                     <select name="sort" id="sort">
-                        <option value="">Select</option>
-                        <option value="asc">Sort By Price: Low to High</option>
-                        <option value="desc">Sort By Price: High to Low</option>
+                        <option value="">Sort by Price</option>
+                        <option value="asc">Low to High</option>
+                        <option value="desc">High to Low</option>
                     </select>
                 </div>
             </div>

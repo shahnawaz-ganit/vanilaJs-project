@@ -11,9 +11,9 @@ body.no-scroll {
     justify-content: space-around;
     align-items: center;
     background-color: blue;
-    padding: 15px 25px;
+    padding: 15px 0px;
     color: white;
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -56,7 +56,7 @@ body.no-scroll {
 .icon-container {
     position: relative;
     display: inline-block;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .icon-container::after {
@@ -64,8 +64,8 @@ body.no-scroll {
     background-color: black;
     color: white;
     border-radius: 50%;
-    padding: 4px 6px;
-    font-size: 8px;
+    padding: 4px;
+    font-size: 10px;
     position: absolute;
     top: -8px;
     right: -8px;
@@ -73,11 +73,19 @@ body.no-scroll {
 
 .icon-container-1 {
     display: none;
+    font-size: 20px;
 }
 
 /* Responsivness */
 
 /* Mobile */
+/* @media (max-width: 460px) {
+    .header{
+        justify-content: space-between;
+        width: 88%;
+    }
+} */
+
 @media (min-width: 320px) and (max-width: 767px) {
     .nav-list {
         display: none;
@@ -86,5 +94,11 @@ body.no-scroll {
     .icon-container-1 {
         display: block;
     }
+    .header{
+        /* justify-content: space-between; */
+        /* padding: 0; */
+        /* width: 88%; */
+    }
+    
 }
 
