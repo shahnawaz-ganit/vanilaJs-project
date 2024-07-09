@@ -22,6 +22,17 @@ body.no-scroll {
 .header-title {
     margin: 0;
     letter-spacing: 5px;
+    font-family:  sans-serif;
+
+    /* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 900 */
+
+/* .orbitron-<uniquifier> { */
+  font-family: "Orbitron", sans-serif;
+  /* font-optical-sizing: auto; */
+  /* font-weight: <weight>; */
+  /* font-style: normal; */
+/* } */
 }
 
 
@@ -56,8 +67,14 @@ body.no-scroll {
 .icon-container {
     position: relative;
     display: inline-block;
-    font-size: 20px;
+
 }
+.icon-container img {
+    height: 25px;
+    width: 25px;
+    filter: brightness(0) invert(1);
+}
+
 
 .icon-container::after {
     content: '10';

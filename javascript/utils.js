@@ -43,32 +43,33 @@ export function createProductElement(product) {
     productDiv.appendChild(img);
 
     const title = document.createElement('h3');
-    title.textContent = product.title.slice(0, 10);
+    title.textContent = product.title.slice(0, 11);
     productDiv.appendChild(title);
 
     const price = document.createElement('p');
     price.textContent = `$${product.price.toFixed(2)}`;
     productDiv.appendChild(price);
 
+    const heartIcon = document.createElement('p');
+    heartIcon.classList.add('heart-icon-container');
+    heartIcon.innerHTML = '<i class="far fa-heart"></i>' ;
+    productDiv.appendChild(heartIcon);
+
     return productDiv;
 }
 
 export function renderProducts(products) {
-    console.log("render products=>", products)
+    
     const productContainer = document.querySelector('.products-list');
     const errorDiv = document.getElementById('error-container')
     productContainer.innerHTML = '';
-    console.log("before ",errorDiv)
 
     if (products.length > 0) {
-        errorDiv.style.display = 'none';
-        console.log("after ",errorDiv)
-        
+        errorDiv.style.display = 'none';        
         products.forEach(product => {
             const productDiv = createProductElement(product);
             productContainer.appendChild(productDiv);
         });
-        // showLoadMoreBtn()
     }
     else {
         displayError('No Data Available')

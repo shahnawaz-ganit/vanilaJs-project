@@ -19,8 +19,9 @@
 .text-container h1 {
     color: white;
     margin: 0;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     font-size: xx-large;
+    font-family: "Wittgenstein", serif;
 }
 
 .second-h1::after{
