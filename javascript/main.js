@@ -2,47 +2,35 @@
 
 import { fetchData } from './apiService.js';
 import { filterAndSortProducts } from './filterService.js';
-import { showShimmer, hideShimmer,renderProducts,handleLoadError } from './utils.js';
+import { showShimmer, hideShimmer,renderProducts,handleLoadError,updateResultCount } from './utils.js';
 
 
-let limit_products = 10;
+let LIMIT_PRODUCTS = 10;
 let offset = 0;
 let products = [];
 let filteredProducts = [];
 
+// Cache DOM elements
+const loadMoreBtn = document.getElementById('load-more-btn');
+const searchInput = document.getElementById('search');
+const sortSelect = document.getElementById('sort');
+const categoryInputs = document.querySelectorAll('.filters input[type="checkbox"]');
 
+
+// Event Listeners
 document.addEventListener('DOMContentLoaded', async function () {
     try {
-
-        // Show shimmer initially
-        showShimmer();
-
-        await loadProducts(limit_products, offset);
-
-        const loadMoreBtn = document.getElementById('load-more-btn');
-        const searchInput = document.getElementById('search');
-        const sortSelect = document.getElementById('sort');
-        const categoryInputs = document.querySelectorAll('.filters input[type="checkbox"]');
+        await loadProducts(LIMIT_PRODUCTS, offset);
 
         loadMoreBtn.addEventListener('click', async function () {
-            offset += limit_products;
-            // Show shimmer when loading more
-            showShimmer();
-            await loadProducts(limit_products, offset);
+            offset += LIMIT_PRODUCTS;
+            showShimmer(); // Show shimmer when loading more
+            await loadProducts(LIMIT_PRODUCTS, offset);
         });
 
-        searchInput.addEventListener('input', function () {
-            filterAndSortProducts(products, searchInput.value, sortSelect.value, getSelectedCategories(categoryInputs));
-        });
-
-        sortSelect.addEventListener('change', function () {
-            filterAndSortProducts(products, searchInput.value, sortSelect.value, getSelectedCategories(categoryInputs));
-        });
-
-        categoryInputs.forEach(input => input.addEventListener('change', function () {
-            filterAndSortProducts(products, searchInput.value, sortSelect.value, getSelectedCategories(categoryInputs));
-        }));
-
+        searchInput.addEventListener('input', onFilterChange);
+        sortSelect.addEventListener('change', onFilterChange);
+        categoryInputs.forEach(input => input.addEventListener('change', onFilterChange));
     } catch (error) {
         handleLoadError(error);
     }
@@ -50,27 +38,27 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 async function loadProducts(limit, offset) {
     try {
+
+        showShimmer()
+
         const data = await fetchData(`/products?limit=${limit}&offset=${offset}`);
         products = [...products, ...data];
         filteredProducts = products;
 
-        if (offset === 0) {
-            hideShimmer();
-        }
-        if (offset > 0) {
-            hideShimmer();
-        }
+        hideShimmer();
 
         renderProducts(filteredProducts);
-
-        document.getElementById('result-count-1').textContent = `${filteredProducts.length} Results`;
-        document.getElementById('result-count-2').textContent = `${filteredProducts.length} Results`;
+        updateResultCount(filteredProducts.length)
 
     } catch (error) {
+        hideShimmer();
         handleLoadError(error);
     }
 }
 
+function onFilterChange(){
+    filterAndSortProducts(products, searchInput.value, sortSelect.value, getSelectedCategories(categoryInputs));
+}
 
 function getSelectedCategories(categoryInputs) {
     return Array.from(categoryInputs)

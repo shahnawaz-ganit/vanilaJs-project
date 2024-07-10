@@ -1,5 +1,5 @@
 // filterService.js
-import { renderProducts,handleLoadError } from './utils.js';
+import { renderProducts,handleLoadError, updateResultCount } from './utils.js';
 
 
 // Function for filter and sort
@@ -20,10 +20,9 @@ export function filterAndSortProducts(products, searchInput, sortValue, selected
             filteredProducts.sort((a, b) => b.price - a.price);
         }
 
-        let final_data = removeDuplicate(filteredProducts);
-        renderProducts(final_data);
-        document.getElementById('result-count-1').textContent = `${final_data.length} Results`;
-        document.getElementById('result-count-2').textContent = `${final_data.length} Results`;
+        let uniqueProducts = removeDuplicate(filteredProducts);
+        renderProducts(uniqueProducts);
+        updateResultCount(uniqueProducts.length)
 
     } catch (error) {
         handleLoadError(error);
@@ -41,7 +40,7 @@ export function removeDuplicate(data) {
 
         return Array.from(uniqueValues);
     } catch (error) {
-        console.error('Error', error);
+        console.error('Error removing duplicates', error);
     }
 }
 
