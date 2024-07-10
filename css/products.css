@@ -60,6 +60,7 @@
 
 /* Responsiveness */
 
+
 /* Mobile */
 @media (min-width: 320px) and (max-width: 768px) {
     .product-section {
@@ -81,11 +82,16 @@
         
     }
     .product img {
-        height: 30vh;
+        height: 30dvh;
     }
 
  }
-
+ @media (max-width: 400px) {
+    .product-container {
+        width: 89%;
+        order: 1; 
+    }
+}
 
 /* Tablet */
 @media (min-width: 768px) and (max-width: 1023px) {

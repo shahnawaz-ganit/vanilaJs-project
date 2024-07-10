@@ -25,6 +25,7 @@ footer {
 .footer-section-1 p {
     font-size: 14px;
     margin: 5px 0;
+    color: gray;
 }
 
 .footer-section-1 span {
@@ -45,11 +46,14 @@ footer {
     font-size: 20px;
     letter-spacing: 5px;
     margin: 0 10px 0 0; 
+    font-family: "Orbitron", sans-serif;
+
 }
 
 .footer-section-2 p {
     font-size: 13px;
     margin: 0 10px 0 0; 
+    color: gray;
 }
 
 .footer-section-2 a {
