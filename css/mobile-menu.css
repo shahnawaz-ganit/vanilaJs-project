@@ -68,6 +68,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 0px 2rem;
 }
 .filter-sort-text{
     font-size: 18px;
@@ -85,5 +86,6 @@
    
     .mobile-filter-sort-section{
         display: block;
+        /* margin-left: 1.2rem; */
     }
  }
